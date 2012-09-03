@@ -86,20 +86,20 @@ html_extractor = TagExtractor::HTMLExtractor.new('This is a string with #tag1, #
 Is a subclass of `StringExtractor` and thus inherits all of its methods, adding a new one for tag manipulation :
 * Convert tags to html links
 It can be passed a separator, as usual, as a first parameter, and an hash with a class attribute for css classes.
-  ```ruby
-  html_extractor.convert_tags_to_html_links('#', :class => 'tag tag-link') { }
-  # => 'This is a string with <a class="tag tag-link" href="">#tag1</a>, <a class="tag tag-link" href="">#tag2</a>'
-  ```
+```ruby
+html_extractor.convert_tags_to_html_links('#', :class => 'tag tag-link') { }
+# => 'This is a string with <a class="tag tag-link" href="">#tag1</a>, <a class="tag tag-link" href="">#tag2</a>'
+```
 Now, how do we specify a link in a dynamic way ? Using a block :
-  ```ruby
-  html_extractor.convert_tags_to_html_links('#', :class => 'tag tag-link') do |name|
-    "/tag/#{name}.downcase"
-  end
-  # => 'This is a string with <a class="tag tag-link" href="/tag/tag2">#tag1</a>, <a class="tag tag-link" href="/tag/tag2">#tag2</a>'
+```ruby
+html_extractor.convert_tags_to_html_links('#', :class => 'tag tag-link') do |name|
+  "/tag/#{name}.downcase"
+end
+# => 'This is a string with <a class="tag tag-link" href="/tag/tag2">#tag1</a>, <a class="tag tag-link" href="/tag/tag2">#tag2</a>'
 ```
 The method passes the extracted tag name (without the separator) to the block, so you can use it to dynamically create links.
 
-**Protip: **This method is aliased `linkify_tags` as `convert_tags_to_html_links` can often be a pain to write.
+*Protip: *This method is aliased `linkify_tags` as `convert_tags_to_html_links` can often be a pain to write.
 
 ### HTMLExtractor with rails
 Using rails, or most web frameworks, we often encounter HTML escaping. In rails, if you actually add pure HTML into a string, it will only display as regular text (gladly).
