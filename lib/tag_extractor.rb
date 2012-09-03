@@ -49,8 +49,12 @@ module TagExtractor
 end
 
 class String
-  def extract_tags(separator = nil)
-    TagExtractor::StringExtractor.new(self).extract(separator)
+  def extract_tags(separator = nil, with_separator = false)
+    if with_separator
+      TagExtractor::StringExtractor.new(self).extract_with_separator(separator)
+    else
+      TagExtractor::StringExtractor.new(self).extract(separator)
+    end
   end
 
   def convert_tags_to_html_links(separator = nil, &block)
