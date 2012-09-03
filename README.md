@@ -139,7 +139,7 @@ Simply remember that TagExtractor is a module containing all TagExtractor relate
 * Allow multiple tag separators
 * Allow customised regex
 * HTMLExtractor :
-** #wrap_in_html_tag method
+ * #wrap_in_html_tag method
 * XMLExtractor
 * JSONExtractor
 
