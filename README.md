@@ -4,7 +4,7 @@
 tag-extractor -v
 # => 0.1.0
 ```
-A minimal ruby library for tag extraction and manipulation
+A minimal ruby library for tag extraction and manipulation.
 
 # Installation
 `gem install tag-extractor`
@@ -13,7 +13,7 @@ A minimal ruby library for tag extraction and manipulation
 A tag is composed of a Tag separator, which is usually a character such as `#` or `@` and a string of characters.
 The basic regex currently in use is
 ```ruby
-%r{(?:#{tag_separator})[a-zA-Z](?:\w|-)*}`
+%r{(?:#{tag_separator})[a-zA-Z](?:\w|-)*}
 ```
 Which allows, considering we are using `#` as a separator :
 * #tag
@@ -45,7 +45,7 @@ Which will set a default tag separator to `#` for every call to a TagExtractor m
 Which will set a tag separator with a higher precedence than the one set through the global setter.
 Please be careful with the fact that if you have not set any tag separator through the global setter, you will need to pass it in every method call.
 
-To illustrate the higher precedence principle, here is an example :
+Here is an example to illustrate the higher precedence principle:
 ```ruby
 TagExtractor.tag_separator = '#'
 TagExtractor::StringExtractor.new('#tag1').extract
@@ -62,7 +62,7 @@ TagExtractor.tag_separator
 ```
 
 ## String Extractor
-A string extractor is initialized by passing the content to extract from (the source) :
+A string extractor is initialized by passing the content from which to extract (the source) :
 ```ruby
 extractor = TagExtractor::StringExtractor.new('Here is my string with #tag1, #tag2')
 ```
