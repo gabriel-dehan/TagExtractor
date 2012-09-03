@@ -123,7 +123,7 @@ As we are usually working with native ruby strings :
   '#tag1'.extract_tags('#', true) # => ['#tag1']
   ```
 * `String#linkify_tags` and `String#convert_tags_to_html_links` :
-  ```
+  ```ruby
   '#tag1'.linkify_tags('#', :class => 'tag') { |name| "/tag/#{name}" }
   # => '<a class="tag" href="/tag/tag1">#tag1</a>'
   ```
