@@ -117,13 +117,16 @@ And you are done.
 ## With ruby native String objects
 As we are usually working with native ruby strings :
 * String#_extract_tags_ :
+
   ```ruby
   '#tag1'.extract_tags('#') # => ['tag1']
   # It can be passed a second parameter which determine if we want to return the tags with separators (default: false)
   '#tag1'.extract_tags('#', true) # => ['#tag1']
   ```
 * String#_linkify_tags_ and String#_convert_tags_to_html_links_ :
+
   ```ruby
+
   '#tag1'.linkify_tags('#', :class => 'tag') { |name| "/tag/#{name}" }
   # => '<a class="tag" href="/tag/tag1">#tag1</a>'
   ```
