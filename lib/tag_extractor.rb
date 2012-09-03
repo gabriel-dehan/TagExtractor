@@ -24,18 +24,21 @@ module TagExtractor
       extract_with_separator(separator).collect { |t| t.slice!(0); t }
     end
 
-    def get_regex(separator = nil)
-      tag_separator = separator || TagExtractor::tag_separator
-      %r{(?:#{tag_separator})[a-zA-Z](?:\w|-)*}
-    end
+    private
+      def get_regex(separator = nil)
+        tag_separator = separator || TagExtractor::tag_separator
+        %r{(?:#{tag_separator})[a-zA-Z](?:\w|-)*}
+      end
   end # StringExtractor
 
   class HTMLExtractor < StringExtractor
-      def convert_tags_to_html_links(separator = nil, &block)
+      def convert_tags_to_html_links(separator = nil, options = { class: nil }, &block)
         @source.gsub!(get_regex(separator)) { |name|
-          '<a href="' + block.call(name.slice(1..-1))  + '">' + name + '</a>'
+          link = block.call(name.slice(1..-1)) || ''
+          '<a ' + (options[:class].nil? ? '' : 'class="' + options[:class] + '" ') + 'href="' + link  + '">' + name + '</a>'
         }
       end
+      alias :linkify_tags :convert_tags_to_html_links
     end
 
   class TagSeparatorError < StandardError
@@ -53,4 +56,5 @@ class String
   def convert_tags_to_html_links(separator = nil, &block)
     TagExtractor::HTMLExtractor.new(self).convert_tags_to_html_links(separator, &block)
   end
+  alias :linkify_tags :convert_tags_to_html_links
 end
