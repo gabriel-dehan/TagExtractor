@@ -87,6 +87,7 @@ Is a subclass of `StringExtractor` and thus inherits all of its methods, adding 
 * Convert tags to html links
 It can be passed a separator, as usual, as a first parameter, and an hash with a class attribute for css classes.
 ```ruby
+
 html_extractor.convert_tags_to_html_links('#', :class => 'tag tag-link') { }
 # => 'This is a string with <a class="tag tag-link" href="">#tag1</a>, <a class="tag tag-link" href="">#tag2</a>'
 ```
