@@ -101,7 +101,7 @@ Is a subclass of `StringExtractor` and thus inherits all of its methods, adding 
   ```
   The method passes the extracted tag name (without the separator) to the block, so you can use it to dynamically create links.
 
-*Protip: *This method is aliased `linkify_tags` as `convert_tags_to_html_links` can often be a pain to write.
+*Protip:* This method is aliased `linkify_tags` as `convert_tags_to_html_links` can often be a pain to write.
 
 ### HTMLExtractor with rails
 Using rails, or most web frameworks, we often encounter HTML escaping. In rails, if you actually add pure HTML into a string, it will only display as regular text (gladly).
