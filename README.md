@@ -118,6 +118,7 @@ And you are done.
 As we are usually working with native ruby strings :
 * String#_extract_tags_ :
   ```ruby
+
   '#tag1'.extract_tags('#') # => ['tag1']
   # It can be passed a second parameter which determine
   # if we want to return the tags with separators (default: false)
