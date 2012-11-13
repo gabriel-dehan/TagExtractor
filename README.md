@@ -82,7 +82,7 @@ TagExtractor.words_container
 
 ## Constants
 TagExtractor ships with a few constants :
-* `TagExtractor::DEFAULT_SEPARATOR`, which corresponds to the `#`
+* `TagExtractor::DEFAULT_SEPARATOR`, which corresponds to the `#` character.
 * `TagExtractor::GLOBAL_SEPARATOR`,  which defaults to the global separator you have set.
 * `TagExtractor::DEFAULT_CONTAINER`, which corresponds to `[]`
 
