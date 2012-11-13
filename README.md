@@ -49,7 +49,7 @@ There are two ways to set the tag separator or container :
   ```
 Which will set a default tag separator to `#` and the container to `{}` for every call to a TagExtractor method
 
-* Passing the separator and/or as an argument of a method
+* Passing the separator and/or container as an argument of a method
   ```ruby
   TagExtractor::StringExtractor.new('#tag1').extract('#')
   TagExtractor::StringExtractor.new('#tag1').extract('#', '{}')
